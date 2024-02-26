@@ -5,16 +5,16 @@ import 'package:api_getx/views/widgets/elevated_button.dart';
 import 'package:flutter/material.dart';
 
 class ListTileWidget extends StatelessWidget {
-  final String sNo;
+  final String? sNo;
   final String task;
   final Color? trailingButtonColor;
-  final TextEditingController listTileCtrl;
+  final TextEditingController? listTileCtrl;
 
   ListTileWidget(
       {super.key,
-      required this.sNo,
+       this.sNo,
       required this.task,
-      required this.listTileCtrl,
+      this.listTileCtrl,
       this.trailingButtonColor});
 
   final TextEditingController editCtrl = TextEditingController();
@@ -30,7 +30,7 @@ class ListTileWidget extends StatelessWidget {
       padding: const EdgeInsets.all(10.0),
       child: Row(
         children: <Widget>[
-          Expanded(flex: 0, child: Text(sNo,style:TextStyle(
+          Expanded(flex: 0, child: Text('$sNo',style:TextStyle(
              fontSize: 22.0,
              color: Colors.blue[300],
              fontWeight: FontWeight.w600,

@@ -1,6 +1,3 @@
-
-
-
 import 'package:api_getx/model/to_do_model.dart';
 import 'package:api_getx/services/backend/app_response.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +22,7 @@ Future fetchTodo()async{
     
     var todoItem = await app.getTodoList();
      todoItems.value = todoItem ?? [];
-       debugPrint("$todoItem");
+       debugPrint("Return list :$todoItem");
   }
   finally{
    isLoading(false);
