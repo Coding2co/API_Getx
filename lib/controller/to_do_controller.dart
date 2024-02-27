@@ -19,10 +19,9 @@ Future fetchTodo()async{
 
   try{
     isLoading(true);
-    
     var todoItem = await app.getTodoList();
      todoItems.value = todoItem ?? [];
-       debugPrint("Return list :$todoItem");
+     debugPrint("Return list :$todoItem");
   }
   finally{
    isLoading(false);
@@ -32,9 +31,43 @@ Future fetchTodo()async{
 
 }
   
-     
-    
+ Future <String?> addTodo(Items addItem) async{
+   try{
+    isLoading(true);
+    var response = await app.addTodoList(addItem);
+    debugPrint(response);
+      return response;
+   }
+   finally{
+    isLoading(false);
+   }
   
+ }
+
+ Future <String?> updateTodo(Items updateItem,String refId) async{
+  try{
+    isLoading(true);
+    var response = await app.updateTodoList(updateItem, refId);
+    debugPrint(response);
+    return response;
+  }
+  finally{
+    isLoading(false);
+  }
+ }
+    
+Future <String?> deletedToddo(String refId) async{
+  try{
+    isLoading(true);
+    var response = await app.deleteTodoList(refId);
+    debugPrint(response);
+    return response;
+
+  }
+  finally{
+    isLoading(false);
+  }
+}
   
 
 

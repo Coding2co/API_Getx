@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 class ListTileWidget extends StatelessWidget {
   final String? sNo;
   final String task;
+  final VoidCallback? onDeletePressed;
+   final VoidCallback? onEditPressed;
   final Color? trailingButtonColor;
   final TextEditingController? listTileCtrl;
 
@@ -14,6 +16,9 @@ class ListTileWidget extends StatelessWidget {
       {super.key,
        this.sNo,
       required this.task,
+      this.onEditPressed,
+     this.onDeletePressed,
+      
       this.listTileCtrl,
       this.trailingButtonColor});
 
@@ -51,6 +56,7 @@ class ListTileWidget extends StatelessWidget {
             flex: 0,
             child: ElevatedButtonWidget(
               elevatedButtonCtrl: editCtrl,
+              onPressed: onEditPressed,
               appIcon: const Icon(Icons.edit, color: Colors.black,size: 17.0, weight: 40,),
               trailingButtonColor: Colors.amber[200],
             ),
@@ -62,6 +68,7 @@ class ListTileWidget extends StatelessWidget {
             flex: 0,
             child: ElevatedButtonWidget(
               elevatedButtonCtrl: deleteCtrl,
+              onPressed: onDeletePressed,
               appIcon: const Icon(
                 Icons.delete,
                 size: 17.0,
