@@ -15,11 +15,10 @@ class ListTileWidget extends StatelessWidget {
   ListTileWidget(
       {super.key,
        this.sNo,
-      required this.task,
-      this.onEditPressed,
+     required this.task,
+     this.onEditPressed,
      this.onDeletePressed,
-      
-      this.listTileCtrl,
+     this.listTileCtrl,
       this.trailingButtonColor});
 
   final TextEditingController editCtrl = TextEditingController();

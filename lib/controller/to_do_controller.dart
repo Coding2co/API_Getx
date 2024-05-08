@@ -32,46 +32,42 @@ Future fetchTodo()async{
 }
   
  Future <String?> addTodo(Items addItem) async{
-   try{
-    isLoading(true);
-    var response = await app.addTodoList(addItem);
-    debugPrint(response);
+  try {
+      isLoading(true);
+      var response = await app.addTodoList(addItem);
+      await fetchTodo();
       return response;
-   }
-   finally{
-    isLoading(false);
-   }
+    } finally {
+      isLoading(false);
+    }
   
  }
 
  Future <String?> updateTodo(Items updateItem,String refId) async{
-  try{
-    isLoading(true);
-    var response = await app.updateTodoList(updateItem, refId);
-    debugPrint(response);
-    return response;
-  }
-  finally{
-    isLoading(false);
-  }
+  try {
+      isLoading(true);
+      var response = await app.updateTodoList(updateItem, refId);
+      await fetchTodo();
+      return response;
+    } finally {
+      isLoading(false);
+    }
  }
     
 Future <String?> deletedToddo(String refId) async{
-  try{
-    isLoading(true);
-    var response = await app.deleteTodoList(refId);
-    debugPrint(response);
-    return response;
 
-  }
-  finally{
-    isLoading(false);
-  }
+   try {
+      isLoading(true);
+      var response = await app.deleteTodoList(refId);
+      await fetchTodo();
+      return response;
+    } finally {
+      isLoading(false);
+    }
 }
   
 
 
 }
-
 
 
